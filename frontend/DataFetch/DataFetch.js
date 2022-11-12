@@ -15,7 +15,7 @@ class DataFetch extends React.Component {
     }
 
     getData() {
-        axios.get("http://192.168.137.1:3000/plantAPI/getPlants")
+        axios.get("http://172.20.10.12:3000/plantAPI/getPlants")
             .then(response => {this.setState({ data: response.data })})
     }
 

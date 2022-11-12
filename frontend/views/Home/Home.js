@@ -8,28 +8,15 @@ import {
     Typography,
     Card,
 } from './components'
+import Plant from '../Plant'
+import Link from 'next/link'
 
-
-const plants = [
+const headLinks = [
     {
-        name: "cactus",
-        water: 100,
-        soil: 52,
-        health: 96,
+        title: "Projects",
+        link: "./projects",
     },
-    {
-        name: "alo vera",
-        water: 82,
-        soil: 82,
-        health: 59,
-    },
-    {
-        name: "lavender",
-        water: 90,
-        soil: 72,
-        health: 97,
-    },
-]
+];
 
 const Home  = ({data}) => {
   
@@ -41,14 +28,18 @@ const Home  = ({data}) => {
                 <div className='homePortfolio'>
                     <Typography classSet={'homeHeadline'}>Your Plants:</Typography>
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
-                        {console.log(Object.keys(data))}
                         {Object.values(data).map((plant, index) => (
                             <div>
+                            <Link 
+                                href={"./Plants"}
+                            >
+                                <a className='headerLink'>
                             <Card
                                 key={index}
                                 title={plant.type}
                                 >
-                            </Card>
+                            </Card></a>
+                            </Link>
                             </div>
                         ))}
                         <button id='addPlant' className='addPlant'>+</button>
