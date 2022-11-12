@@ -24,8 +24,6 @@ const LogIn = ({data}) => {
     console.log('value is:', event.target.value);
   };
 
-  const [token, setToken] = useState(null);
-
   useEffect(() => {
     if (localStorage.getItem('token')?.length == 128) {
       setToken(localStorage.getItem('token'))
@@ -40,7 +38,6 @@ const LogIn = ({data}) => {
       axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/login", URLParams)
           .then(function (response) {
               if (response.data.length == 128) {
-                setToken(response.data)
                 localStorage.setItem('token', response.data);
               } 
           })
@@ -54,17 +51,13 @@ const LogIn = ({data}) => {
         axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/register", URLParams)
             .then(function (response) {
               if (response.data.length == 128) {
-                setToken(response.data)
                 localStorage.setItem('token', response.data);
               } 
             })
     }
 
-
-    console.log(token)
-    console.log(token == null)
     return (
-      <>{token == undefined ? (
+      <>{localStorage.getItem('token')?.length != 128 ? (
     <>
     <div>
       <SiteHeader loggedIN={false} />
