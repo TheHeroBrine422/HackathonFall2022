@@ -28,10 +28,10 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin("Caleb iphone", "hackathon");
 
-  // while(WiFi.status() != WL_CONNECTED){
-  //   delay(500);   
-  //   Serial.println(WiFi.status());
-  // }  
+  while(WiFi.status() != WL_CONNECTED){
+    delay(500);   
+    Serial.println(WiFi.status());
+  }  
 
   Serial.println("Connected!");
   dht.begin(); 
