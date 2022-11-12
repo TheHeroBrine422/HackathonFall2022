@@ -38,7 +38,7 @@ const Plants = ({data, getData}) => {
                 <div className='plantImagePlantsPage'><div className={typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].type : null}/></div>
               <Typography classSet="plantProperty humidity">Humidity: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.humidity : null}%</Typography>
                 <Typography classSet="plantProperty ph">PH: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.ph : null}</Typography>
-                <Typography classSet="plantProperty sunlight">Sunlight Today: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.sun : null}seconds</Typography>
+                <Typography classSet="plantProperty sunlight">Sunlight Today: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.sun : null} volts</Typography>
                 <Typography classSet="plantProperty temperature">Temperature: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.temperature : null}F</Typography>
                 <Typography classSet="plantProperty water">Water: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.water : null}ml</Typography>
               </Grid>
