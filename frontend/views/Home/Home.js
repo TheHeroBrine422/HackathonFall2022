@@ -1,4 +1,5 @@
-
+import { useState } from 'react';
+import axios from 'axios';
 
 import { 
     SiteHeader,
@@ -18,7 +19,26 @@ const headLinks = [
     },
 ];
 
-const Home  = ({data, client}) => {
+const Home  = ({data, token}) => {
+
+
+    const [activePlant, setActivePlant] = useState('');
+
+
+  const handleActivePlant = plant => {
+      const URLParams = new URLSearchParams();
+      URLParams.append("identifier", plant)
+      URLParams.append("token", token)
+
+      axios.post("http://172.20.10.12:3000/plantAPI/setActivePlant", URLParams)
+          .then(function (response) {
+              if ("invalid") {
+
+              } else {
+                  setToken(response.data)
+              }
+          })
+  }
   
 
     return (
@@ -28,17 +48,24 @@ const Home  = ({data, client}) => {
                 <div className='homePortfolio'>
                     <Typography classSet={'homeHeadline'}>Your Plants:</Typography>
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
-                        {Object.values(data).map((plant, index) => (
-                            <div>
+                        {Object.keys(data).map((plant, index) => (
+                            <div key={index}>
                             <Link 
                                 href={"./Plants"}
+                            >
+                            <button
+                                // type="text"
+                                // id="username"
+                                // name="username"
+                                onClick={handleActivePlant(plant)}
                             >
                                 <a className='headerLink'>
                             <Card
                                 key={index}
-                                title={plant.type}
+                                title={data[plant]?.name}
                                 >
                             </Card></a>
+                            </button>
                             </Link>
                             </div>
                         ))}

@@ -3,8 +3,9 @@ import { SiteHeader, Typography } from '../../views/Home/components'
 import Link from 'next/link'
 import axios from 'axios'
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import DataFetch from "../../DataFetch";
+import { render } from 'react-dom';
 
 const LogIn = ({data}) => {
 
@@ -23,21 +24,25 @@ const LogIn = ({data}) => {
     console.log('value is:', event.target.value);
   };
 
-    const [token, setToken] = useState('');
+  const [token, setToken] = useState(null);
 
+  useEffect(() => {
+    if (localStorage.getItem('token')?.length == 128) {
+      setToken(localStorage.getItem('token'))
+    }
+  })
 
   const login = () => {
       const URLParams = new URLSearchParams();
       URLParams.append("email", username)
       URLParams.append("password", password)
 
-      axios.post("http://localhost:3000/plantAPI/login", URLParams)
+      axios.post("http://172.20.10.12:3000/plantAPI/login", URLParams)
           .then(function (response) {
-              if ("invalid") {
-
-              } else {
-                  setToken(response.data)
-              }
+              if (response.data.length == 128) {
+                setToken(response.data)
+                localStorage.setItem('token', response.data);
+              } 
           })
   }
 
@@ -46,31 +51,34 @@ const LogIn = ({data}) => {
         URLParams.append("email", username)
         URLParams.append("password", password)
 
-        axios.post("http://localhost:3000/plantAPI/register", URLParams)
+        axios.post("http://172.20.10.12:3000/plantAPI/register", URLParams)
             .then(function (response) {
-                console.log(response.data);
+              if (response.data.length == 128) {
+                setToken(response.data)
+                localStorage.setItem('token', response.data);
+              } 
             })
     }
 
 
+    console.log(token)
+    console.log(token == null)
 
-    return token == null ? (<div>
+    return token == undefined ? (<div>
       <SiteHeader />
       <div className='pageContent'>
           <div className='homePortfolio'>
-              <Typography classSet={'homeHeadline'}>Register</Typography>
-                  <Link
-                      href={"./Home"}
+              <Typography classSet={'homeHeadline'}></Typography>
+                  <button
                       onClick={register}
                   >
-                      <a className='headerLink'>Login</a>
-                  </Link>
-                  <Link
-                      href={"./Home"}
+                      <p className='headerLink'>Register</p>
+                  </button>
+                  <button
                       onClick={login}
                   >
                       <a className='headerLink'>Log In</a>
-                  </Link>
+                  </button>
           </div>
           
     <div>
@@ -100,7 +108,7 @@ const LogIn = ({data}) => {
       </div>
       {/* <SiteFooter /> */}
   </div>
-    ) : (<DataFetch />)
+    ) : (<DataFetch token={token} />)
 }
 
 

@@ -2,6 +2,7 @@ import axios from "axios";
 // import Home from "../views/Home/Home";
 import React from "react";
 import Plants from "./Plants";
+import LoadingScreen from "../../blocks/LoadingScreen";
 
 class ToLazy extends React.Component {
     constructor () {
@@ -23,7 +24,7 @@ class ToLazy extends React.Component {
     render () {
         console.log(this.state.data)
         return this.state.data != null ? <Plants {...this.state.data}/> : (
-            <span>Loading wells...</span>
+            <LoadingScreen/>
         )
     }
 }

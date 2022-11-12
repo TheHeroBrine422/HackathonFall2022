@@ -19,7 +19,7 @@ const Plant  = ({plantData}) => {
           <SiteHeader />
           <div className='pageContent'>
               <div className='homePortfolio'>
-                  <Typography classSet={'homeHeadline'}>{plantData.type}</Typography>
+                  <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
                   <Grid classSet="plantsGrid" rows={1} columns={2}>
                       <button id='addPlant' className='addPlant'>+</button>
                   </Grid>
