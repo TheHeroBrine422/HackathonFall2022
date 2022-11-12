@@ -18,15 +18,17 @@ const Plants = ({data}) => {
 
   function renamePlant() {
     let name = prompt("What do you want the new name of this plant to be?", data[localStorage.getItem('activePlant')].name)
-    const URLParams = new URLSearchParams();
-    URLParams.append("identifier", localStorage.getItem('activePlant'))
-    URLParams.append('token', localStorage.getItem('token'))
-    URLParams.append('name', name)
+    if (name != data[localStorage.getItem('activePlant')].name) {
+      const URLParams = new URLSearchParams();
+      URLParams.append("identifier", localStorage.getItem('activePlant'))
+      URLParams.append('token', localStorage.getItem('token'))
+      URLParams.append('name', name)
 
-    axios.post("http://localhost:3000/plantAPI/setPlantName", URLParams)
-        .then(function (response) {
-          console.log(response.data);
-        })
+      axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/setPlantName", URLParams)
+          .then(function (response) {
+            console.log(response.data);
+          })
+    }
   }
 
   function deletePlant() {
@@ -35,7 +37,7 @@ const Plants = ({data}) => {
       URLParams.append("identifier", localStorage.getItem('activePlant'))
       URLParams.append('token', localStorage.getItem('token'))
 
-      axios.post("http://localhost:3000/plantAPI/deletePlant", URLParams)
+      axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/deletePlant", URLParams)
           .then(function (response) {
             console.log(response.data);
           })

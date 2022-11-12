@@ -9,7 +9,7 @@ const AddPlant = ({}) => {
   const [unpairedPlants, setUnpairedPlants] = useState(null)
 
   useEffect(() => {
-    axios.get("http://localhost:3000/plantAPI/getUnpairedPlants", {params: {"token": localStorage.getItem('token')}})
+    axios.get(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/getUnpairedPlants", {params: {"token": localStorage.getItem('token')}})
         .then(function (response) {
           setUnpairedPlants(response.data)
         })
