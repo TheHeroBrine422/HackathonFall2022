@@ -57,7 +57,7 @@ const LogIn = ({data}) => {
     }
 
     return (
-      <>{localStorage.getItem('token')?.length != 128 ? (
+      <>{localStorage == undefined || localStorage.getItem('token') == undefined || localStorage.getItem('token').length != 128 ? (
     <>
     <div>
       <SiteHeader loggedIN={false} />
