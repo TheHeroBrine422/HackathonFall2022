@@ -1,3 +1,4 @@
+import PlantList from "../../blocks/PlantList"
 import { SiteHeader } from "../../views/Home/components"
 
 const AddPlant = ({}) => {
@@ -5,6 +6,8 @@ const AddPlant = ({}) => {
     <div>
       <SiteHeader loggedIN={true} />
         <div className='pageContent'>
+          <button>Add New Plant Name</button>
+          <PlantList/>
           <button>
             Add a new plant
           </button>
