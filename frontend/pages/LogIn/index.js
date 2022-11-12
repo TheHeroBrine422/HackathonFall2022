@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiteHeader, Typography } from '../../views/Home/components'
+import { SiteHeader, Typography } from '../../blocks/components'
 import Link from 'next/link'
 import axios from 'axios'
 
@@ -69,46 +69,50 @@ const LogIn = ({data}) => {
     <div>
       <SiteHeader loggedIN={false} />
       <div className='pageContent'>
-          <div className='homePortfolio'>
-              <Typography classSet={'homeHeadline'}></Typography>
-                  <button className='registerWrapper'
-                      onClick={register}
-                  >
-                      <p className='register'>Register</p>
-                  </button>
+          
+    <div  className='inputWrapper'>
+      <h2>Username</h2>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        className='usernameInput'
+        onChange={handleUsername}
+        value={username}
+      />
+
+      {/* <h2>Username: {username}</h2> */}
+    </div>
+
+    <div className='inputWrapper'>
+      <h2>Password</h2>
+      <input
+        type="text"
+        id="password"
+        name="password"
+        className='passwordInput'
+        onChange={handlePassword}
+        value={password}
+      />
+
+      {/* <h2>Password: {password}</h2> */}
+    </div>
+
+
+    <div className='loginRegister'>
                   <button  className='logInWrapper'
                       onClick={login}
                   >
                       <a className='logIn'>Log In</a>
                   </button>
+                  <button className='registerWrapper'
+                      onClick={register}
+                  >
+                      <a className='register'>Register</a>
+                  </button>
           </div>
-          
-    <div>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        onChange={handleUsername}
-        value={username}
-      />
-
-      <h2>Username: {username}</h2>
-    </div>
-
-    <div>
-      <input
-        type="text"
-        id="password"
-        name="password"
-        onChange={handlePassword}
-        value={password}
-      />
-
-      <h2>Password: {password}</h2>
-    </div>
 
       </div>
-      {/* <SiteFooter /> */}
   </div>
     </>) : (<DataFetch token={token} />)}
     </>

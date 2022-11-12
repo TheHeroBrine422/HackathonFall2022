@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
-import { SiteHeader, Typography } from '../../views/Home/components'
+import { SiteHeader, Typography } from '../../blocks/components'
 import { useEffect, useState } from 'react'
-import {Grid } from '../../views/Home/components'
+import {Grid } from '../../blocks/components'
 import axios from 'axios'
 
 const Plants = ({data, getData}) => {
@@ -42,11 +42,11 @@ const Plants = ({data, getData}) => {
               <button onClick={editPlant}>Edit Plant</button>
               <button onClick={deletePlant}>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
-              <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}</Typography>
+              <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}%</Typography>
               <Typography classSet="plantProperty ph">PH: {data[localStorage.getItem('activePlant')].currentData.ph}</Typography>
-              <Typography classSet="plantProperty sunlight">Sunlight: {data[localStorage.getItem('activePlant')].currentData.sun}</Typography>
+              <Typography classSet="plantProperty sunlight">Sunlight Today: {data[localStorage.getItem('activePlant')].currentData.sun}seconds</Typography>
               <Typography classSet="plantProperty temperature">Temperature: {data[localStorage.getItem('activePlant')].currentData.temperature}F</Typography>
-              <Typography classSet="plantProperty water">Water: {data[localStorage.getItem('activePlant')].currentData.water}</Typography>
+              <Typography classSet="plantProperty water">Water: {data[localStorage.getItem('activePlant')].currentData.water}ml</Typography>
               </Grid>
           </div>
           </div>

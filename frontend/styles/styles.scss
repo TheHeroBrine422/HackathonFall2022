@@ -249,91 +249,98 @@ border-bottom: 7px solid rgb(10, 104, 104);
   margin-top: -7rem;
   .BP1 {
     position: absolute;
-    transform: translate( 40vw, 40vh);
+    transform: translate( 30vw, 40vh);
     z-index: 1;
+    height: 100px;
+    width: 100px;
   }
   .BP2 {
     position: absolute;
-    transform: translate( 60vw, 40vh);
+    transform: translate(65vw, 40vh);
     z-index: 2;
+    height: 100px;
+    width: 100px;
   }
   .BPMushroom {
     position: absolute;
-    transform: translate( 50vw, 50vh);
     z-index: 3;
     animation-duration: 3s;
     animation-name: animationM;
     animation-iteration-count: infinite;
+    height: 120px;
+    width: 120px;
   }
   .BP3 {
     position: absolute;
-    transform: translate( 40vw, 60vh);
     z-index: 4;
   animation-duration: 3s;
   animation-name: animationI3;
   animation-iteration-count: infinite;
+  height: 100px;
+  width: 100px;
   }
   .BP4 {
     position: absolute;
-    transform: translate( 60vw, 60vh);
     z-index: 5;
     animation-duration: 3s;
     animation-name: animationI4;
     animation-iteration-count: infinite;
+    height: 100px;
+    width: 100px;
   }
 }
 
 
 @keyframes animationI3 {
   0% {
-    transform: translate( 40vw, 60vh);
+    transform: translate( 35vw, 60vh);
   }
   20% {
-    transform: translate( 35vw, 65vh);
+    transform: translate( 30vw, 65vh);
   }
   80% {
-    transform: translate( 35vw, 65vh);
+    transform: translate( 30vw, 65vh);
   }
   100% {
-    transform: translate( 40vw, 60vh);
+    transform: translate( 35vw, 60vh);
   }
 }
 
 @keyframes animationI4 {
   0% {
-    transform: translate( 60vw, 60vh);
+    transform: translate( 55vw, 60vh);
   }
   20% {
-    transform: translate( 60vw, 60vh);
+    transform: translate( 55vw, 60vh);
   }
   40% {
-    transform: translate( 65vw, 65vh);
+    transform: translate( 60vw, 65vh);
   }
   60% {
-    transform: translate( 65vw, 65vh);
+    transform: translate( 60vw, 65vh);
   }
   100% {
-    transform: translate( 60vw, 60vh);
+    transform: translate( 55vw, 60vh);
   }
 }
 
 @keyframes animationM {
   0% {
-    transform: translate( 50vw, 50vh);
+    transform: translate( 45vw, 50vh);
   }
   40% {
-    transform: translate( 50vw, 50vh) rotate(0deg);
+    transform: translate( 45vw, 50vh) rotate(0deg);
     
   }
   50% {
-    transform: translate( 50vw, 50vh) rotate(360deg);
+    transform: translate( 45vw, 50vh) rotate(360deg);
     
   }
   // 60% {
   //   transform: translate( 50vw, 50vh) rotate(360deg);
   // }
   100% {
-    transform: translate( 50vw, 50vh) rotate(360deg);
+    transform: translate( 45vw, 50vh) rotate(360deg);
   }
 }
 
@@ -344,3 +351,58 @@ border-bottom: 7px solid rgb(10, 104, 104);
   color: rgb(82, 59, 23);
 }
 
+.inputWrapper {
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginRegister {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  button {
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    background-color: #3993ee;
+    margin: 1rem;
+    max-height: min-content;
+    padding: 3px 10px;
+   }
+}
+.loadingImages{
+  .bigPlant {
+    background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041039159659352104/Screenshot_2022-11-12_111705.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .mediumPlant {
+    background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041039160615653447/Screenshot_20221112_111719.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .smallPlant {
+    background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041039159952949299/Screenshot_20221112_111446.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .mushroom {
+    background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041039160292675664/Screenshot_20221112_111528.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
