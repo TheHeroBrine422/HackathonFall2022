@@ -23,7 +23,7 @@ class ToLazy extends React.Component {
 
     render () {
         console.log(this.state.data)
-        return this.state.data != null ? <Plants data={this.state.data}/> : (
+        return this.state.data != null ? <Plants data={this.state.data} getData={this.getData}/> : (
             <LoadingScreen/>
         )
     }
