@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
-import { SiteHeader, Typography } from '../../views/Home/components'
+import { SiteHeader, Typography } from '../../blocks/components'
 import { useEffect, useState } from 'react'
-import {Grid } from '../../views/Home/components'
+import {Grid } from '../../blocks/components'
 import axios from 'axios'
 
 const Plants = ({data, getData}) => {

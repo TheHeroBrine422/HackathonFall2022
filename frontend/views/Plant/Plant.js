@@ -7,7 +7,7 @@ import {
   Photo,
   Typography,
   Card,
-} from '../Home/components'
+} from '../../blocks/components'
 
 
 

@@ -1,4 +1,4 @@
-import { Photo } from "../../views/Home/components"
+import { Photo } from "../components"
 
 const LoadingScreen = ({}) => {
 

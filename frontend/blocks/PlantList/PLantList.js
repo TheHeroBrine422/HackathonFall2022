@@ -1,5 +1,5 @@
 
-import { Grid } from "../../views/Home/components";
+import { Grid } from "../components";
 
 const PlantList = ({}) => {
 return(
