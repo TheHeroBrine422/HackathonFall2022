@@ -3,9 +3,11 @@ import { SiteHeader } from "../../views/Home/components"
 import React, {useEffect, useState} from "react";
 import LoadingScreen from "../../blocks/LoadingScreen";
 
+import axios from 'axios';
+
 const AddPlant = ({}) => {
 
-  [unpairedPlants, setUnpairedPlants] = useState(null)
+  const [unpairedPlants, setUnpairedPlants] = useState(null)
 
   useEffect(() => {
     axios.get("http://localhost:3000/plantAPI/getPlants", {params: {"token": localStorage.getItem('token')}})
