@@ -32,7 +32,6 @@ img {
   background-color: rgb(114, 220, 213);
   border-top: 7px solid rgb(10, 104, 104);
   border-bottom: 7px solid rgb(10, 104, 104);
-  min-height: min-content;
   .siteTitle {
     // float: left;
     text-align: center;
@@ -209,6 +208,9 @@ img {
 @media screen and (max-width: 800px) {
   .plantsGrid, .plantPropertyGrid {
     display: block !important;
+  }
+  .siteHeader {
+  min-height: 7rem;
   }
 }
 
