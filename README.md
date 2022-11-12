@@ -21,7 +21,10 @@ Project Name: The Fun-Gi Gardener
     * RGB LED: Cosmetic Item, would be used to light up the inside of the product and cast an ambient light over the area.
 
 ### <u>Software Used:</u>
-        Show parts of the code for the arduino, then talk about how the backend and front end was made
+* Software Stack:
+    * Arduino (C++) for interfacing with the sensors and uploading sensor data to the backend
+    * Nodejs and Expressjs for running the backend server
+    * React and javascript for the frontend website.
 
 ### <u>Useage:</u>
 ![LightSensor](https://github.com/TheHeroBrine422/HackathonFall2022/blob/main/Resources/ReadmeSensorAndLightDemo.gif?raw=true)
