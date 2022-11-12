@@ -6,14 +6,15 @@ const SiteHeader = ({loggedIN}) => {
 
     return (
         <div className="siteHeader">
-            <div className="toHome">Home</div>
+            <Link href={'./'}>
+            <div className="toHome">Home</div></Link>
             <h1 className="siteTitle">
                 MyPlantium
             </h1>
             {loggedIN &&
             <div>
-                <div className="logOut">Log Out</div>
-                <div className="accountSettings">Account Settings</div>
+                <button className="logOut">Log Out</button>
+                <button className="accountSettings">Account Settings</button>
             </div>
             }
         </div>
