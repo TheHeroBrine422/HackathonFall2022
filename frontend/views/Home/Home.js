@@ -8,7 +8,7 @@ import {
     Photo,
     Typography,
     Card,
-} from './components'
+} from '../../blocks/components'
 import Plant from '../Plant'
 import Link from 'next/link'
 

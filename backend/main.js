@@ -112,7 +112,8 @@ app.post('/plantAPI/sendPlantData', (req, res) => { // hardware
             db.data["unpaired"][req.body.identifier] = {}
             db.data["unpaired"][req.body.identifier].historicalData = {}
             db.data["unpaired"][req.body.identifier].type = "Unknown Type"
-            db.data["unpaired"][req.body.identifier].name = "UNKNOWN PLANT. FIRST SEEN AT "+Date.now()
+            date = new Date()
+            db.data["unpaired"][req.body.identifier].name = "UNKNOWN PLANT. FIRST SEEN AT "+(date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()
             db.identifiers[req.body.identifier] = "unpaired"
         }
         dataObj = {
@@ -205,6 +206,10 @@ app.post('/plantAPI/setPlantType', (req, res) => { // frontend
         })
     }
 });
+
+app.get('/plantAPI/getPossibleTypes', (req, res) => {
+    res.send(JSON.stringify(settings.validTypes))
+})
 
 app.listen(settings.port, () => {
     console.log('server started at localhost:' + settings.port);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiteHeader, Typography } from '../../views/Home/components'
+import { SiteHeader, Typography } from '../../blocks/components'
 import Link from 'next/link'
 import axios from 'axios'
 
