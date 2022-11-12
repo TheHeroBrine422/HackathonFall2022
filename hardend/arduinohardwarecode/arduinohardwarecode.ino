@@ -5,6 +5,15 @@ int status = WL_IDLE_STATUS;
 
 void setup() {
   Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin("Caleb iphone", "hackathon");
+  
+  while(WiFi.status() != WL_CONNECTED){
+    delay(500);   
+    Serial.println(WiFi.status());
+  }  
+  Serial.println("Connected!");
+//Pin Setup Here  
 }
 
 void loop() {
