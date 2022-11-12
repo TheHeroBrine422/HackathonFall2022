@@ -35,6 +35,7 @@ const Plants = ({data, getData}) => {
               <button onClick={editPlant}>Edit Plant</button>
               <button onClick={deletePlant}>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
+                <div className='plantImagePlantsPage'><div className={typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].type : null}/></div>
               <Typography classSet="plantProperty humidity">Humidity: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.humidity : null}%</Typography>
                 <Typography classSet="plantProperty ph">PH: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.ph : null}</Typography>
                 <Typography classSet="plantProperty sunlight">Sunlight Today: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.sun : null}seconds</Typography>

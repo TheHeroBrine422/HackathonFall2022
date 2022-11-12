@@ -210,7 +210,7 @@ img {
     display: block !important;
   }
   .siteHeader {
-  min-height: 7rem;
+    font-size: 25px;
   }
 }
 
@@ -436,3 +436,127 @@ img {
   color: white;
 }
 
+.plantImagePlantsPage {
+  grid-area: 2/2/3/3;
+}
+
+.cactus {
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102757211414588/Screenshot_20221112_032757.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flower{
+
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bonsai{
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102757664407603/Screenshot_20221112_032809.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.succulent{
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102760722059344/Screenshot_20221112_111719.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.fern {
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.tulip{
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.bigLeaf{
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102760281645076/Screenshot_20221112_111701.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.vine {
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102939462307880/Screenshot_20221112_032941.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.creeper{
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102939462307880/Screenshot_20221112_032941.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.tree {
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938958999583/Screenshot_20221112_032936.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.cane {
+  background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938564739072/Screenshot_20221112_032931.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
