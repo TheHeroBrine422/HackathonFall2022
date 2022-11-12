@@ -66,7 +66,7 @@ const LogIn = ({data}) => {
     return (
       <>{token == undefined ? (
     <>
-    <div>
+    <div className='logInPageWrapper'>
       <SiteHeader loggedIN={false} />
       <div className='pageContent'>
           

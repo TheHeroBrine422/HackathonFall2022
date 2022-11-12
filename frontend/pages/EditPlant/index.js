@@ -69,7 +69,7 @@ const EditPlant = ({}) => {
     return possibleTypes == null || name == null ? (<LoadingScreen />) : (
         <div>
             <SiteHeader loggedIN={true} />
-            <div className='pageContent'>
+            <div className='pageContentEdit'>
                 <p>Plant Name:</p>
                 <input type={"text"} onChange={handleNameChange} value={name}></input>
                 <p>Plant Type:</p>

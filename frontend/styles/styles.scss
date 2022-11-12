@@ -212,21 +212,11 @@ img {
   .siteHeader {
     height: 9rem;
   }
-  .water {
-    transform: translate(0, 0);
+  .logInPageWrapper .siteHeader {
+    height: 5rem !important;
   }
-  .sunlight {
-    transform: translate(0, 0);
-  }
-  .humidity {
-    transform: translate(0, 0);
-  }
-  
-  .temperature {
-    transform: translate(0, 0);
-  }
-  .ph {
-    transform: translate(0, 0);
+  .water, .ph, .sunlight, .humidity, .temperature   {
+    transform: translate(0, 0) !important;
   }
 }
 
@@ -529,54 +519,21 @@ img {
 }
 .BigLeaf{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102760281645076/Screenshot_20221112_111701.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Vine {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102939462307880/Screenshot_20221112_032941.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Creeper{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102939462307880/Screenshot_20221112_032941.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Tree {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938958999583/Screenshot_20221112_032936.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Cane {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938564739072/Screenshot_20221112_032931.png);
+}
+
+.Cactus, .BigLeaf, .Bonsai, .Succulent, .Cane, .Creeper, .Bonsai, .Tree, .Vine, .Tulip, .Flower, .Fern {
   height: 80px;
   width: 70px;
   background-size: contain;
@@ -585,5 +542,11 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-
 }
+
+.pageContentEdit {
+  max-width: min-content !important;
+  text-align: center;
+}
+
+
