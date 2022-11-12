@@ -41,7 +41,7 @@ const EditPlant = ({}) => {
         URLParamsType.append("identifier", localStorage.getItem('activePlant'))
         URLParamsType.append("token", localStorage.getItem('token'))
 
-        let promise1 = axios.post("http://localhost:3001/plantAPI/setPlantType", URLParamsType)
+        let promise1 = axios.post(process.env.NEXT_PUBLIC_API_URL + "/plantAPI/setPlantType", URLParamsType)
             .then(function (response) {
                 console.log(response.data);
             })
@@ -52,7 +52,7 @@ const EditPlant = ({}) => {
         URLParamsName.append("token", localStorage.getItem('token'))
 
 
-        let promise2 = axios.post("http://localhost:3001/plantAPI/setPlantName", URLParamsName)
+        let promise2 = axios.post(process.env.NEXT_PUBLIC_API_URL + "/plantAPI/setPlantName", URLParamsName)
             .then(function (response) {
                 console.log(response.data);
             })
