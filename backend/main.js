@@ -29,6 +29,11 @@ paramRegex = {
     "token": /[0-9a-f]{128}/
 }
 
+Object.filter = (obj, predicate) => // https://stackoverflow.com/a/37616104
+    Object.keys(obj)
+        .filter( key => predicate(obj[key]) )
+        .reduce( (res, key) => (res[key] = obj[key], res), {} );
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");
@@ -68,26 +73,56 @@ function checkParams(res, params, paramList) {
 }
 
 app.get('/plantAPI/getPlants', (req, res) => { // frontend
-    res.send(JSON.stringify(db.data))
+    if (checkParams(res, req.body, ["token"])) {
+        verifyToken(res, req.body.token, user => {
+            res.send(JSON.stringify(db.data[user]))
+        })
+    }
+});
+
+app.get('/plantAPI/getUnpairedPlants', (req, res) => { // frontend
+    if (checkParams(res, req.body, ["token"])) {
+        verifyToken(res, req.body.token, user => {
+            unpairedCopy = JSON.parse(JSON.stringify(db.data["unpaired"]))
+            unpairedCopy = Object.filter(unpairedCopy, ([key,value]) => value.pairing)
+            res.send(JSON.stringify(unpairedCopy))
+        })
+    }
+});
+
+app.post('/plantAPI/pair', (req, res) => { // frontend
+    if (checkParams(res, req.body, ["token", "identifier"])) {
+        verifyToken(res, req.body.token, user => {
+            if (Object.keys(db.data["unpaired"]).indexOf(req.body.identifier) > -1) {
+                db.data[user][req.body.identifier] = db.data["unpaired"][req.body.identifier]
+                delete db.data["unpaired"][req.body.identifier]
+                res.send("Success")
+            } else {
+                res.send("Unknown Identifier")
+            }
+        })
+    }
 });
 
 app.post('/plantAPI/sendPlantData', (req, res) => { // hardware
-    if (checkParams(res, req.body, ["identifier", "temperature", "sun", "humidity", "water", "ph"])) {
-        if (Object.keys(db.data).indexOf(req.body.identifier) < 0) {
-            db.data[req.body.identifier] = {}
-            db.data[req.body.identifier].historicalData = {}
-            db.data[req.body.identifier].type = "Unknown Type"
-            db.data[req.body.identifier].name = "UNKNOWN PLANT. FIRST SEEN AT "+Date.now()
+    if (checkParams(res, req.body, ["identifier", "temperature", "sun", "humidity", "water", "ph", "pairing"])) {
+        if (Object.keys(db.identifiers).indexOf(req.body.identifier) < 0) {
+            db.data["unpaired"][req.body.identifier] = {}
+            db.data["unpaired"][req.body.identifier].historicalData = {}
+            db.data["unpaired"][req.body.identifier].type = "Unknown Type"
+            db.data["unpaired"][req.body.identifier].name = "UNKNOWN PLANT. FIRST SEEN AT "+Date.now()
+            db.identifiers[req.body.identifier] = "unpaired"
         }
         dataObj = {
             "temperature": Number(req.body.temperature),
             "sun": Number(req.body.sun),
             "humidity": Number(req.body.humidity),
             "water": Number(req.body.ph),
-            "ph": Number(req.body.ph)
+            "ph": Number(req.body.ph),
+            "pairing": pairing == "1"
         }
-        db.data[req.body.identifier].currentData = dataObj
-        db.data[req.body.identifier].historicalData[Date.now()] = dataObj
+        db.data[db.identifiers[req.body.identifier]][req.body.identifier].currentData = dataObj
+        db.data[db.identifiers[req.body.identifier]][req.body.identifier].historicalData[Date.now()] = dataObj
         // alerting?
         res.send("Success")
     }
@@ -96,8 +131,8 @@ app.post('/plantAPI/sendPlantData', (req, res) => { // hardware
 app.post('/plantAPI/deletePlant', (req, res) => { // frontend
     if (checkParams(res, req.body, ["token", "identifier"])) {
         verifyToken(res, req.body.token, user => {
-            if (Object.keys(db.data).indexOf(req.body.identifier) > -1) {
-                delete db.data[req.body.identifier]
+            if (Object.keys(db.data[user]).indexOf(req.body.identifier) > -1) {
+                delete db.data[user][req.body.identifier]
                 res.send("Success")
             } else {
                 res.send("Unknown Identifier")
@@ -141,8 +176,8 @@ app.post('/plantAPI/login', (req, res) => { // frontend
 app.post('/plantAPI/setPlantName', (req, res) => { // frontend
     if (checkParams(res, req.body, ["token", "identifier", "name"])) {
         verifyToken(res, req.body.token, user => {
-            if (Object.keys(db.data).indexOf(req.body.identifier) > -1) {
-                db.data[req.body.identifier].name = req.body.name
+            if (Object.keys(db.data[user]).indexOf(req.body.identifier) > -1) {
+                db.data[user][req.body.identifier].name = req.body.name
                 res.send("Success")
             } else {
                 res.send("Unknown Identifier")
@@ -154,9 +189,9 @@ app.post('/plantAPI/setPlantName', (req, res) => { // frontend
 app.post('/plantAPI/setPlantType', (req, res) => { // frontend
     if (checkParams(res, req.body, ["token", "identifier", "type"])) {
         verifyToken(res, req.body.token, user => {
-            if (Object.keys(db.data).indexOf(req.body.identifier) > -1) {
+            if (Object.keys(db.data[user]).indexOf(req.body.identifier) > -1) {
                 if (settings.validTypes.indexOf(req.body.type) > -1) {
-                    db.data[req.body.identifier].type = req.body.type
+                    db.data[user][req.body.identifier].type = req.body.type
                     res.send("Success")
                 } else {
                     res.send("Invalid Type")
