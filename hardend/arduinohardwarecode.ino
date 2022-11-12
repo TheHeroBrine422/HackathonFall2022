@@ -18,11 +18,13 @@ int val;
 void setup() {
   Serial.begin(115200);
 
+//set up pins
   pinMode(18,OUTPUT);
   pinMode(19,OUTPUT);
   pinMode(21,OUTPUT);
   pinMode(22,INPUT);
 
+//wifi set up
   WiFi.mode(WIFI_STA);
   WiFi.begin("Caleb iphone", "hackathon");
 
@@ -38,8 +40,8 @@ void setup() {
 void loop() {
   long Timer = 1000;
   val = digitalRead(22);
-  //server stuff
   delay(Timer);
+  //setting up Server connection
   WiFiClient client;
   HTTPClient http;
   char ssid[13];
@@ -48,6 +50,7 @@ void loop() {
   http.begin(client, "http://172.20.10.12:3000/plantAPI/sendPlantData");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
+//Button return for Pairing device
   if(val == LOW){
     button = 1;
   }
@@ -60,7 +63,6 @@ void loop() {
   String temperatureData = String(Temp);
   int Sun = analogRead(33);
   String sunData = String(Sun);
-  //Serial.println(sunData);
   int Humid = dht.readHumidity();
   String humidityData = String(Humid);
   int Water;
@@ -69,13 +71,8 @@ void loop() {
   String phData = String(Ph);
   String pairing = String(button);
 
-  Serial.println(sunData + "\n"); 
-  Serial.print(F(" Humidity: "));
-  Serial.print(humidityData);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(temperatureData);
-  Serial.print(F("°F "));
-
+//Turning LED light on when Outside brightness gets Darker
+//Allows for future user custimization of light color 
   if(Sun < 600){
     digitalWrite(18,HIGH);
     digitalWrite(19,HIGH);
@@ -86,10 +83,8 @@ void loop() {
     digitalWrite(19,LOW);
     digitalWrite(21,LOW);
   }
- 
 
-  Serial.println(pairing);
-  //sever stuff
+  //string of data for backend use
   String PlantData = ("identifier=" + sssid + "&temperature=" + temperatureData + "&sun=" + sunData + "&humidity=" + humidityData + "&water=" + waterData + "&ph=" + phData + "&pairing" + pairing);
   http.POST(PlantData);
   http.end();
