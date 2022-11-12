@@ -38,9 +38,11 @@ const Plants = ({data, getData}) => {
           .then(function (response) {
             console.log(response.data);
             getData()
+            window.location.href = './'
           })
     }
   }
+
 
     return (
     <div>

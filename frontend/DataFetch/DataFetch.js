@@ -16,7 +16,7 @@ class DataFetch extends React.Component {
     }
 
     getData() {
-        axios.get(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/getPlants")
+        axios.get(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/getPlants", {params: {token: localStorage.getItem("token")}})
             .then(response => {this.setState({ data: response.data/*, token: this.props.token     add this once you do backend stuff*/})})
     }
 

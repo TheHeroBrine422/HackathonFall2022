@@ -4,6 +4,7 @@ const SiteHeader = ({loggedIN}) => {
 
     function logout() {
         localStorage.setItem('token', "")
+        window.location.href = "./"
         window.location.reload()
     }
 

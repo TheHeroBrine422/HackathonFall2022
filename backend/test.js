@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-token = "0053d986648779c53b7400f3dc784a6b85388f3dc483f64208e26e9e13f14eeb3a392c00fb9df54c0e2d1a4ac00d1c227c44339bc2870467f268354ab1bbbab8"
+token = "64b2862c9e5ba9bec5fff52124ae3e04d61b305b07212e865637e278561306096a7592c489d9a33a8492632ef82c1a2574ea47abc2445c0df519ba68d3919c81"
 
 async function sendPlantData() {
     const URLParams = new URLSearchParams();
@@ -9,10 +9,10 @@ async function sendPlantData() {
     URLParams.append("humidity", 3)
     URLParams.append("water", 4)
     URLParams.append("ph", 5)
-    URLParams.append("pairing", 0)
-    URLParams.append("identifier", "123ABC456DEF")
+    URLParams.append("pairing", 1)
+    URLParams.append("identifier", "456ADF564BCD")
 
-    await axios.post("http://localhost:3000/plantAPI/sendPlantData", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/sendPlantData", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -25,21 +25,21 @@ async function setPlantName() {
     URLParams.append("token", token)
 
 
-    await axios.post("http://localhost:3000/plantAPI/setPlantName", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/setPlantName", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
 }
 
 async function getPlants() {
-    await axios.get("http://localhost:3000/plantAPI/getPlants", {params: {"token": token}})
+    await axios.get("http://localhost:3001/plantAPI/getPlants", {params: {"token": token}})
         .then(function (response) {
             console.log(response.data);
         })
 }
 
 async function getUnpairedPlants() {
-    await axios.get("http://localhost:3000/plantAPI/getUnpairedPlants", {params: {"token": token}})
+    await axios.get("http://localhost:3001/plantAPI/getUnpairedPlants", {params: {"token": token}})
         .then(function (response) {
             console.log(response.data);
         })
@@ -50,7 +50,7 @@ async function register() {
     URLParams.append("email", "caleb@calebgj.io")
     URLParams.append("password", "testpassword")
 
-    await axios.post("http://localhost:3000/plantAPI/register", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/register", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -61,7 +61,7 @@ async function login() {
     URLParams.append("email", "caleb@calebgj.io")
     URLParams.append("password", "testpassword")
 
-    await axios.post("http://localhost:3000/plantAPI/login", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/login", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -72,7 +72,7 @@ async function faillogin() {
     URLParams.append("email", "caleb@calebgj.io")
     URLParams.append("password", "incorrect")
 
-    await axios.post("http://localhost:3000/plantAPI/login", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/login", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -85,7 +85,7 @@ async function setPlantType() {
     URLParams.append("token", token)
 
 
-    await axios.post("http://localhost:3000/plantAPI/setPlantType", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/setPlantType", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -95,7 +95,7 @@ async function deletePlant() {
     const URLParams = new URLSearchParams();
     URLParams.append("identifier", "ABCDID")
 
-    await axios.post("http://localhost:3000/plantAPI/deletePlant", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/deletePlant", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -106,7 +106,7 @@ async function pair() {
     URLParams.append("identifier", "123ABC456DEF")
     URLParams.append("token", token)
 
-    await axios.post("http://localhost:3000/plantAPI/pair", URLParams)
+    await axios.post("http://localhost:3001/plantAPI/pair", URLParams)
         .then(function (response) {
             console.log(response.data);
         })
@@ -115,10 +115,10 @@ async function pair() {
 (async () => {
     //console.log("plantdata")
     //await pair()
-    //await sendPlantData()
-    await setPlantName()
-    await setPlantType()
-    await getPlants()
+    await sendPlantData()
+    //await setPlantName()
+    //await setPlantType()
+    //await getPlants()
     //console.log("name")
     //console.log("type")
     //console.log("register")

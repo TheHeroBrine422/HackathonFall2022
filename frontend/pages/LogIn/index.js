@@ -71,15 +71,15 @@ const LogIn = ({data}) => {
       <div className='pageContent'>
           <div className='homePortfolio'>
               <Typography classSet={'homeHeadline'}></Typography>
-                  <button
+                  <button className='registerWrapper'
                       onClick={register}
                   >
-                      <p className='headerLink'>Register</p>
+                      <p className='register'>Register</p>
                   </button>
-                  <button
+                  <button  className='logInWrapper'
                       onClick={login}
                   >
-                      <a className='headerLink'>Log In</a>
+                      <a className='logIn'>Log In</a>
                   </button>
           </div>
           
