@@ -1,0 +1,11 @@
+{
+  "debug": true,
+  "port": 3000,
+  "validTypes" : [
+    "Cactus",
+    "Flower"
+  ],
+  "saltRounds": 10,
+  "maxNumberOfTokens": 10,
+  "tokenDuration": 2592000000
+}
