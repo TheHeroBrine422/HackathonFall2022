@@ -26,6 +26,7 @@ void setup() {
 
 //wifi set up
   WiFi.mode(WIFI_STA);
+  //WiFi.begin(Your_ssid, Your_password);
   WiFi.begin("Caleb iphone", "hackathon");
 
   while(WiFi.status() != WL_CONNECTED){
@@ -47,6 +48,7 @@ void loop() {
   char ssid[13];
   snprintf(ssid, 13, "%llX", ESP.getEfuseMac());
   String sssid(ssid); //Gives the ssid identifier of the ESP32
+  //http.begin(client, Your_Backend_Server_URL);
   http.begin(client, "http://172.20.10.12:3000/plantAPI/sendPlantData");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
