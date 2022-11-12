@@ -13,7 +13,7 @@ const SiteHeader = ({loggedIN}) => {
             <Link href={'./'}>
             <div className="toHome">Home</div></Link>
             <h1 className="siteTitle">
-                MyPlantium
+                The Fun-Gi Gardener
             </h1>
             {loggedIN &&
             <div>

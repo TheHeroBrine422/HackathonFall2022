@@ -55,11 +55,11 @@ const Plants = ({data, getData}) => {
               <button>Change Plant</button>
               <button onClick={deletePlant}>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
-              <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}</Typography>
+              <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}%</Typography>
               <Typography classSet="plantProperty ph">PH: {data[localStorage.getItem('activePlant')].currentData.ph}</Typography>
-              <Typography classSet="plantProperty sunlight">Sunlight: {data[localStorage.getItem('activePlant')].currentData.sun}</Typography>
+              <Typography classSet="plantProperty sunlight">Sunlight Today: {data[localStorage.getItem('activePlant')].currentData.sun}seconds</Typography>
               <Typography classSet="plantProperty temperature">Temperature: {data[localStorage.getItem('activePlant')].currentData.temperature}F</Typography>
-              <Typography classSet="plantProperty water">Water: {data[localStorage.getItem('activePlant')].currentData.water}</Typography>
+              <Typography classSet="plantProperty water">Water: {data[localStorage.getItem('activePlant')].currentData.water}ml</Typography>
               </Grid>
           </div>
           </div>

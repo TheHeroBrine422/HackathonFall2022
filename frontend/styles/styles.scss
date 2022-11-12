@@ -344,3 +344,29 @@ border-bottom: 7px solid rgb(10, 104, 104);
   color: rgb(82, 59, 23);
 }
 
+.inputWrapper {
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginRegister {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  button {
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    background-color: #3993ee;
+    margin: 1rem;
+    max-height: min-content;
+    padding: 3px 10px;
+   }
+}
+
