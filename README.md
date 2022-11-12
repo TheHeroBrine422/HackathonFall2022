@@ -7,7 +7,7 @@ Project Name: The Fun-Gi Gardener
 |A'darius Lee|ajl017@uark.edu|Senior|Computer Science|
 |Scott Eagleson|-|Senior|Biomedical Engineering|
 |Gabriel Garcia|-|Senior|Computer Science|
-|Caleb Jones|-|Freshman|Computer Engineering|
+|Caleb Jones|cgj010@uark.edu|Freshman|Computer Engineering|
 ***
 ### <u>Introduction:</u>
         The Fun-Gi Gardener is a smart home device designed to monitor plant health and then report that information back to a website that you can monitor from a computer or a phone. 
