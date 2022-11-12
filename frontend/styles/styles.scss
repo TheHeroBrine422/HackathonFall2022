@@ -160,39 +160,12 @@ img {
     }
   }
 
-  #border {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    word-wrap: break-word;
-    position: absolute;
-    border-left: solid 2px black;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    height: 250px;
-    width: 400px;  
-  }
-  #border::before {
-    content:"";
-    position: absolute;
-    top: 0px;
-    left: -1px;
-    height: 5px;
-    width: 150px;
-    border-top: solid 2px black;
-    border-top-left-radius: 5px;
-  }
-  
-  #border::after {
-    content:"";
-    position: absolute;
-    top: 244px;
-    left: -2px;
-    width: 300px;
-    height: 5px;
-    border-bottom: solid 2px black;
-    border-bottom-left-radius: 5px;
-  }
-  
-
+.addPlant {
+  border: 2px solid yellowgreen;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  font-size: 5rem;
+  color: yellowgreen;
+  background-color: transparent;
+}

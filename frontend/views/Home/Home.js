@@ -32,6 +32,7 @@ const plants = [
 ]
 
 const Home  = ({data}) => {
+  
 
     return (
         <div>
@@ -42,12 +43,15 @@ const Home  = ({data}) => {
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
                         {console.log(Object.keys(data))}
                         {Object.values(data).map((plant, index) => (
+                            <div>
                             <Card
                                 key={index}
                                 title={plant.type}
                                 >
                             </Card>
+                            </div>
                         ))}
+                        <button id='addPlant' className='addPlant'>+</button>
                     </Grid>
                 </div>
                 
