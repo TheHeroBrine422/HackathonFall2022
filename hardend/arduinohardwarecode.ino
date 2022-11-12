@@ -49,7 +49,7 @@ void loop() {
   snprintf(ssid, 13, "%llX", ESP.getEfuseMac());
   String sssid(ssid); //Gives the ssid identifier of the ESP32
   //http.begin(client, Your_Backend_Server_URL);
-  http.begin(client, "http://172.20.10.12:3001/plantAPI/sendPlantData");
+  http.begin(client, "http://172.20.10.12:3001/forward");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
 //Button return for Pairing device

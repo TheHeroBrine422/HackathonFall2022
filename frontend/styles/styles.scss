@@ -30,8 +30,9 @@ img {
   display: flex;
   align-content: center;
   background-color: rgb(114, 220, 213);
-border-top: 7px solid rgb(10, 104, 104);
-border-bottom: 7px solid rgb(10, 104, 104);
+  border-top: 7px solid rgb(10, 104, 104);
+  border-bottom: 7px solid rgb(10, 104, 104);
+  min-height: min-content;
   .siteTitle {
     // float: left;
     text-align: center;
@@ -205,6 +206,12 @@ border-bottom: 7px solid rgb(10, 104, 104);
   max-width: max-content;
 }
 
+@media screen and (max-width: 800px) {
+  .plantsGrid, .plantPropertyGrid {
+    display: block !important;
+  }
+}
+
 .homeHeadline {
   font-size: 3rem;
   color: rgb(79, 46, 7);
@@ -370,10 +377,11 @@ border-bottom: 7px solid rgb(10, 104, 104);
     border: none;
     border-radius: 1rem;
     font-size: 1.2rem;
-    background-color: #3993ee;
+    background-color: #277dd2;
     margin: 1rem;
     max-height: min-content;
     padding: 3px 10px;
+    color: white;
    }
 }
 .loadingImages{
@@ -417,3 +425,12 @@ border-bottom: 7px solid rgb(10, 104, 104);
   align-items: center;
   justify-content: center;
 }
+
+.logOut {
+  background-color: #0c6b1f;
+  border: none;
+  border-radius: 50% 0;
+  padding: 1rem;
+  color: white;
+}
+
