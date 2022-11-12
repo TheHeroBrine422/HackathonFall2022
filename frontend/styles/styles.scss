@@ -448,76 +448,23 @@ img {
 
 .Cactus {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102757211414588/Screenshot_20221112_032757.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
 }
 .Flower{
-
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
 }
 .Bonsai{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102757664407603/Screenshot_20221112_032809.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Succulent{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102760722059344/Screenshot_20221112_111719.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Fern {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
 .Tulip{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938170462359/Screenshot_20221112_032910.png);
-  height: 80px;
-  width: 70px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-
 }
-.BigLeaf{
+.Big-Leaf{
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102760281645076/Screenshot_20221112_111701.png);
 }
 .Vine {
@@ -533,7 +480,7 @@ img {
   background-image: url(https://media.discordapp.net/attachments/1040322051937935453/1041102938564739072/Screenshot_20221112_032931.png);
 }
 
-.Cactus, .BigLeaf, .Bonsai, .Succulent, .Cane, .Creeper, .Bonsai, .Tree, .Vine, .Tulip, .Flower, .Fern {
+.Cactus, .Big-Leaf, .Bonsai, .Succulent, .Cane, .Creeper, .Bonsai, .Tree, .Vine, .Tulip, .Flower, .Fern {
   height: 80px;
   width: 70px;
   background-size: contain;
@@ -547,6 +494,7 @@ img {
 .pageContentEdit {
   max-width: min-content !important;
   text-align: center;
+  margin: 0 auto;
 }
 
 
