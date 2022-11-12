@@ -26,13 +26,9 @@ paramRegex = {
     "type": /[^]*/, // todo: limit length
     "email": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // https://www.emailregex.com/
     "password": /[^]{12,128}/,
-    "token": /[0-9a-f]{128}/
+    "token": /[0-9a-f]{128}/,
+    "pairing": /[01]/
 }
-
-Object.filter = (obj, predicate) => // https://stackoverflow.com/a/37616104
-    Object.keys(obj)
-        .filter( key => predicate(obj[key]) )
-        .reduce( (res, key) => (res[key] = obj[key], res), {} );
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -73,18 +69,23 @@ function checkParams(res, params, paramList) {
 }
 
 app.get('/plantAPI/getPlants', (req, res) => { // frontend
-    if (checkParams(res, req.body, ["token"])) {
-        verifyToken(res, req.body.token, user => {
+    if (checkParams(res, req.query, ["token"])) {
+        verifyToken(res, req.query.token, user => {
             res.send(JSON.stringify(db.data[user]))
         })
     }
 });
 
 app.get('/plantAPI/getUnpairedPlants', (req, res) => { // frontend
-    if (checkParams(res, req.body, ["token"])) {
-        verifyToken(res, req.body.token, user => {
+    if (checkParams(res, req.query, ["token"])) {
+        verifyToken(res, req.query.token, user => {
             unpairedCopy = JSON.parse(JSON.stringify(db.data["unpaired"]))
-            unpairedCopy = Object.filter(unpairedCopy, ([key,value]) => value.pairing)
+            for (let i = 0; i < Object.keys(unpairedCopy).length; i++) {
+                if (!unpairedCopy[Object.keys(unpairedCopy)[i]].currentData.pairing) {
+                    delete unpairedCopy[Object.keys(unpairedCopy)[i]]
+                    i--
+                }
+            }
             res.send(JSON.stringify(unpairedCopy))
         })
     }
@@ -93,9 +94,10 @@ app.get('/plantAPI/getUnpairedPlants', (req, res) => { // frontend
 app.post('/plantAPI/pair', (req, res) => { // frontend
     if (checkParams(res, req.body, ["token", "identifier"])) {
         verifyToken(res, req.body.token, user => {
-            if (Object.keys(db.data["unpaired"]).indexOf(req.body.identifier) > -1) {
+            if (Object.keys(db.data["unpaired"]).indexOf(req.body.identifier) > -1 && db.data.unpaired[req.body.identifier].currentData.pairing) {
                 db.data[user][req.body.identifier] = db.data["unpaired"][req.body.identifier]
                 delete db.data["unpaired"][req.body.identifier]
+                db.identifiers[req.body.identifier] = user
                 res.send("Success")
             } else {
                 res.send("Unknown Identifier")
@@ -119,7 +121,7 @@ app.post('/plantAPI/sendPlantData', (req, res) => { // hardware
             "humidity": Number(req.body.humidity),
             "water": Number(req.body.ph),
             "ph": Number(req.body.ph),
-            "pairing": pairing == "1"
+            "pairing": req.body.pairing == "1"
         }
         db.data[db.identifiers[req.body.identifier]][req.body.identifier].currentData = dataObj
         db.data[db.identifiers[req.body.identifier]][req.body.identifier].historicalData[Date.now()] = dataObj
@@ -146,6 +148,7 @@ app.post('/plantAPI/register', (req, res) => { // frontend
         if (Object.keys(db.logins).indexOf(req.body.email) < 0) {
             bcrypt.hash(crypto.createHash("sha512").update(req.body.password).digest('hex'), settings.saltRounds, (err, hash) => {
                 db.logins[req.body.email] = hash
+                db.data[req.body.email] = {}
             })
             res.send(generateToken(req.body.email))
         } else {
@@ -208,7 +211,7 @@ app.listen(settings.port, () => {
     if (fs.existsSync("db.json")) {
         db = JSON.parse(fs.readFileSync("db.json", 'utf8'))
     } else {
-        db = {"data": {}, "identifiers": {}, "logins": {}, "tokens": {}}
+        db = {"data": {"unpaired": {}}, "identifiers": {}, "logins": {}, "tokens": {}}
     }
     setInterval(saveData, 60*1000)
 })
