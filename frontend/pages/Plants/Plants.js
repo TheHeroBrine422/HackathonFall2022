@@ -17,11 +17,12 @@ const Plants = ({data}) => {
       <SiteHeader />
       <div className='pageContent'>
           <div className='homePortfolio'>
-              <Typography classSet={'homeHeadline'}>Your Plant</Typography>
-
-              <Typography classSet={'homeHeadline'}>{plantData?.name}</Typography>
-              <Typography classSet={'homeHeadline'}>Your Plant</Typography>
-              <Typography classSet={'homeHeadline'}>Your Plant</Typography>
+              <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
+              <Typography classSet={'homeHeadline'}>Hummidity: {plantData.currentData.hummidity}</Typography>
+              <Typography classSet={'homeHeadline'}>PH: {plantData.currentData.ph}</Typography>
+              <Typography classSet={'homeHeadline'}>Sun Light: {plantData.currentData.sun}</Typography>
+              <Typography classSet={'homeHeadline'}>Temperature: {plantData.currentData.temperature}</Typography>
+              <Typography classSet={'homeHeadline'}>Water: {plantData.currentData.water}</Typography>
               
           </div>
           
