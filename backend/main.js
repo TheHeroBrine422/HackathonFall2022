@@ -22,10 +22,10 @@ paramRegex = {
     "water": /[0-9.]*/,
     "ph": /[0-9.]*/,
     "identifier": /[0-9A-F]{12}/,
-    "name": /[^]*/, // todo: limit length
+    "name": /[^]{0,128}/, // todo: limit length
     "type": /[^]*/, // todo: limit length
     "email": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // https://www.emailregex.com/
-    "password": /[^]{12,128}/,
+    "password": /[^]{1,128}/,
     "token": /[0-9a-f]{128}/,
     "pairing": /[01]/
 }
@@ -138,6 +138,7 @@ app.post('/plantAPI/deletePlant', (req, res) => { // frontend
         verifyToken(res, req.body.token, user => {
             if (Object.keys(db.data[user]).indexOf(req.body.identifier) > -1) {
                 delete db.data[user][req.body.identifier]
+                delete db.identifiers[req.body.identifier]
                 res.send("Success")
             } else {
                 res.send("Unknown Identifier")
