@@ -17,8 +17,9 @@ import Link from 'next/link'
 
 const Home  = ({data, token}) => {
 
-  const handleActivePlant = plant => {
+  const handleActivePlant = (plant) => {
     localStorage.setItem('activePlant', plant)
+    window.location.href = './Plants'
   }
 
     return (
@@ -30,11 +31,8 @@ const Home  = ({data, token}) => {
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
                         {Object.keys(data).map((plant, index) => (
                             <div key={index}>
-                            <Link 
-                                href={"./Plants"}
-                            >
                             <button
-                                onClick={handleActivePlant(plant)}
+                                onClick={() => handleActivePlant(plant)}
                                 className="plantButton"
                             >
                             <Card
@@ -43,7 +41,6 @@ const Home  = ({data, token}) => {
                                 >
                             </Card>
                             </button>
-                            </Link>
                             </div>
                         ))}
                         <div>

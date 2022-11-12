@@ -1,15 +1,11 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { SiteHeader, Typography } from '../../views/Home/components'
 import { useEffect, useState } from 'react'
 import {Grid } from '../../views/Home/components'
 import axios from 'axios'
 
-
-
-
-
-const Plants = ({data}) => {
-
+const Plants = ({data, getData}) => {
+  
   const [plantData, setPlantData] = useState({});
 
   useEffect(() => {
@@ -27,6 +23,7 @@ const Plants = ({data}) => {
       axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/setPlantName", URLParams)
           .then(function (response) {
             console.log(response.data);
+            getData()
           })
     }
   }
@@ -40,6 +37,7 @@ const Plants = ({data}) => {
       axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/deletePlant", URLParams)
           .then(function (response) {
             console.log(response.data);
+            getData()
           })
     }
   }
