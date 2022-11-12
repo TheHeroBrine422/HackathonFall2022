@@ -22,7 +22,7 @@ class DataFetch extends React.Component {
 
     render () {
         console.log(this.state.token)
-        return this.state.data != null ? <Home {...this.state.data} token={this.props.token}/> : (
+        return this.state.data != null ? <Home data={this.state.data} token={this.props.token}/> : (
             <LoadingScreen/>
         )
     }

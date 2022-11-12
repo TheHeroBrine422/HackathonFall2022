@@ -21,25 +21,9 @@ const headLinks = [
 
 const Home  = ({data, token}) => {
 
-
-    const [activePlant, setActivePlant] = useState('');
-
-
   const handleActivePlant = plant => {
-      const URLParams = new URLSearchParams();
-      URLParams.append("identifier", plant)
-      URLParams.append("token", token)
-
-      axios.post("http://172.20.10.12:3000/plantAPI/setActivePlant", URLParams)
-          .then(function (response) {
-              if ("invalid") {
-
-              } else {
-                  setToken(response.data)
-              }
-          })
+    localStorage.setItem('activePlant', plant)
   }
-  
 
     return (
         <div>
