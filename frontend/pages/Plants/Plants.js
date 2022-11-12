@@ -1,7 +1,7 @@
 import React from 'react'
 import { SiteHeader, Typography } from '../../views/Home/components'
 import { useEffect, useState } from 'react'
-
+import {Grid } from '../../views/Home/components'
 
 
 const Plants = ({data}) => {
@@ -13,17 +13,21 @@ const Plants = ({data}) => {
   })
 
 
-    return (<div>
+    return (
+    <div>
       <SiteHeader />
       <div className='pageContent'>
           <div className='homePortfolio'>
+            <div>
               <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
-              <Typography classSet={'homeHeadline'}>Hummidity: {plantData.currentData.hummidity}</Typography>
-              <Typography classSet={'homeHeadline'}>PH: {plantData.currentData.ph}</Typography>
-              <Typography classSet={'homeHeadline'}>Sun Light: {plantData.currentData.sun}</Typography>
-              <Typography classSet={'homeHeadline'}>Temperature: {plantData.currentData.temperature}</Typography>
-              <Typography classSet={'homeHeadline'}>Water: {plantData.currentData.water}</Typography>
-              
+              <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
+              <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}</Typography>
+              <Typography classSet="plantProperty ph">PH: {data[localStorage.getItem('activePlant')].currentData.ph}</Typography>
+              <Typography classSet="plantProperty sunlight">Sunlight: {data[localStorage.getItem('activePlant')].currentData.sun}</Typography>
+              <Typography classSet="plantProperty temperature">Temperature: {data[localStorage.getItem('activePlant')].currentData.temperature}F</Typography>
+              <Typography classSet="plantProperty water">Water: {data[localStorage.getItem('activePlant')].currentData.water}</Typography>
+              </Grid>
+          </div>
           </div>
           
 

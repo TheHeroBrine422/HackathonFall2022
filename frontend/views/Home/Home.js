@@ -12,12 +12,8 @@ import {
 import Plant from '../Plant'
 import Link from 'next/link'
 
-const headLinks = [
-    {
-        title: "Projects",
-        link: "./projects",
-    },
-];
+
+
 
 const Home  = ({data, token}) => {
 
@@ -27,10 +23,10 @@ const Home  = ({data, token}) => {
 
     return (
         <div>
-            <SiteHeader />
+            <SiteHeader loggedIN={true} />
             <div className='pageContent'>
                 <div className='homePortfolio'>
-                    <Typography classSet={'homeHeadline'}>Your Plants:</Typography>
+                    <Typography classSet='homeHeadline'>Your Plants:</Typography>
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
                         {Object.keys(data).map((plant, index) => (
                             <div key={index}>
@@ -38,28 +34,31 @@ const Home  = ({data, token}) => {
                                 href={"./Plants"}
                             >
                             <button
-                                // type="text"
-                                // id="username"
-                                // name="username"
                                 onClick={handleActivePlant(plant)}
+                                className="plantButton"
                             >
-                                <a className='headerLink'>
                             <Card
                                 key={index}
                                 title={data[plant]?.name}
                                 >
-                            </Card></a>
+                            </Card>
                             </button>
                             </Link>
                             </div>
                         ))}
-                        <button id='addPlant' className='addPlant'>+</button>
+                        <div>
+                            <button id='addPlant' className='addPlant plantButton'>
+                                <div className='addCard'>
+                            <div className='addText'>+</div>
+                            </div>
+                            </button>
+                        </div>
+                        
                     </Grid>
                 </div>
                 
 
             </div>
-            {/* <SiteFooter /> */}
         </div>
     )
 }

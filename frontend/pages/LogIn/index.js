@@ -63,9 +63,11 @@ const LogIn = ({data}) => {
 
     console.log(token)
     console.log(token == null)
-
-    return token == undefined ? (<div>
-      <SiteHeader />
+    return (
+      <>{token == undefined ? (
+    <>
+    <div>
+      <SiteHeader loggedIN={false} />
       <div className='pageContent'>
           <div className='homePortfolio'>
               <Typography classSet={'homeHeadline'}></Typography>
@@ -108,7 +110,10 @@ const LogIn = ({data}) => {
       </div>
       {/* <SiteFooter /> */}
   </div>
-    ) : (<DataFetch token={token} />)
+    </>) : (<DataFetch token={token} />)}
+    </>
+    )
+    ;
 }
 
 

@@ -2,24 +2,20 @@ import Link from "next/link"
 
 
 
-const SiteHeader = () => {
+const SiteHeader = ({loggedIN=true}) => {
 
     return (
         <div className="siteHeader">
+            <div className="toHome">Home</div>
             <h1 className="siteTitle">
                 MyPlantium
             </h1>
-
-            {/* <ul className="headerLinks">
-            {headLinks.map((headLink, index) => (
-                <Link 
-                    href={headLink.link}  
-                    key={index}
-                    >
-                    <a className='headerLink'>{headLink.title}</a>
-                </Link>
-            ))}
-            </ul> */}
+            {loggedIN &&
+            <div>
+                <div className="logOut">Log Out</div>
+                <div className="accountSettings">Account Settings</div>
+            </div>
+            }
         </div>
     )
 }
