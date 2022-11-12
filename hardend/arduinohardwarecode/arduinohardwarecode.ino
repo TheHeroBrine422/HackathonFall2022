@@ -5,12 +5,15 @@ int status = WL_IDLE_STATUS;
 
 void setup() {
   Serial.begin(115200);
-   while(status != WL_CONNECTED){
-      status = WiFi.begin("RuntimeTerrors", "hackathon");     
-      Serial.println(status);
-   }  
-   Serial.println("Connected!");
-  //Pin Setup Here  
+  WiFi.mode(WIFI_STA);
+  WiFi.begin("Caleb iphone", "hackathon");
+  
+  while(WiFi.status() != WL_CONNECTED){
+    delay(500);   
+    Serial.println(WiFi.status());
+  }  
+  Serial.println("Connected!");
+//Pin Setup Here  
 }
 
 void loop() {
@@ -31,7 +34,7 @@ void loop() {
     String temperatureData = String(Temp);
     int Sun = analogRead(13);
     String sunData = String(Sun);
-    Serial.println(sunData);
+    Serial.println(analogRead(13));
     int Humid;
     String humidityData = String(Humid);
     int Water;
