@@ -20,6 +20,9 @@ const Plants = ({data}) => {
           <div className='homePortfolio'>
             <div>
               <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
+              <button>Rename</button>
+              <button>Change Plant</button>
+              <button>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
               <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}</Typography>
               <Typography classSet="plantProperty ph">PH: {data[localStorage.getItem('activePlant')].currentData.ph}</Typography>
