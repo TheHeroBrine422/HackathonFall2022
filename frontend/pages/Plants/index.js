@@ -17,7 +17,7 @@ class ToLazy extends React.Component {
     }
 
     getData() {
-        axios.get("http://172.20.10.12:3000/plantAPI/getPlants")
+        axios.get(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/getPlants")
             .then(response => {this.setState({ data: response.data })})
     }
 

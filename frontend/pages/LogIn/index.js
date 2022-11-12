@@ -37,7 +37,7 @@ const LogIn = ({data}) => {
       URLParams.append("email", username)
       URLParams.append("password", password)
 
-      axios.post("http://172.20.10.12:3000/plantAPI/login", URLParams)
+      axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/login", URLParams)
           .then(function (response) {
               if (response.data.length == 128) {
                 setToken(response.data)
@@ -51,7 +51,7 @@ const LogIn = ({data}) => {
         URLParams.append("email", username)
         URLParams.append("password", password)
 
-        axios.post("http://172.20.10.12:3000/plantAPI/register", URLParams)
+        axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/register", URLParams)
             .then(function (response) {
               if (response.data.length == 128) {
                 setToken(response.data)
