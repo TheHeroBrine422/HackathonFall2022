@@ -5,6 +5,8 @@ const LoadingScreen = ({}) => {
 
   return(
     <div className="loadingScreen">
+      <div className="loadingText">Loading Content...</div>
+      <div className="loadingImages">
       <div className="BP1">
         <Photo image={''} title={''} ></Photo>
         </div>
@@ -19,6 +21,7 @@ const LoadingScreen = ({}) => {
         </div>
       <div className="BP4">
         <Photo image={''} title={''} ></Photo>
+        </div>
         </div>
     </div>
   )
