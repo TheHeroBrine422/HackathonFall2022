@@ -18,12 +18,14 @@ URLParams.append("pairing", req.body.pairing)
 URLParams.append("identifier", req.body.identifier)
 
 console.log(URLParams)
-
+try {
 axios.post("https://calebgj.io/plantAPI/sendPlantData", URLParams)
   .then(function (response) {
       console.log(response.data);
   })
+  } catch {}
 });
+
 
 app.listen( 3001, () => {
     console.log('server started at localhost:');
