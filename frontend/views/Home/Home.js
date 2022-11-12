@@ -40,12 +40,11 @@ const Home  = ({data}) => {
                 <div className='homePortfolio'>
                     <Typography classSet={'homeHeadline'}>Your Plants:</Typography>
                     <Grid classSet="plantsGrid" rows={1} columns={2}>
-                        {plants.map((plant, index) => (
+                        {console.log(Object.keys(data))}
+                        {Object.values(data).map((plant, index) => (
                             <Card
                                 key={index}
-                                title={plant.name}
-                                // content={project.description}
-                                // image={project.image}
+                                title={plant.type}
                                 >
                             </Card>
                         ))}
