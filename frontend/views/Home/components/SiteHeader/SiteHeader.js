@@ -2,7 +2,7 @@ import Link from "next/link"
 
 
 
-const SiteHeader = ({loggedIN=true}) => {
+const SiteHeader = ({loggedIN}) => {
 
     return (
         <div className="siteHeader">

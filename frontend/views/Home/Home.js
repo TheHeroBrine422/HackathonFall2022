@@ -47,17 +47,16 @@ const Home  = ({data, token}) => {
                             </div>
                         ))}
                         <div>
-                            <button id='addPlant' className='addPlant plantButton'>
-                                <div className='addCard'>
-                            <div className='addText'>+</div>
-                            </div>
-                            </button>
+                            <Link href={'./AddPlant'}>
+                                <button id='addPlant' className='addPlant plantButton'>
+                                    <div className='addCard'>
+                                <div className='addText'>+</div>
+                                </div>
+                                </button>
+                            </Link>
                         </div>
-                        
                     </Grid>
                 </div>
-                
-
             </div>
         </div>
     )

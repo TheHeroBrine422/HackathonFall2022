@@ -15,7 +15,7 @@ const Plants = ({data}) => {
 
     return (
     <div>
-      <SiteHeader />
+      <SiteHeader loggedIN={true} />
       <div className='pageContent'>
           <div className='homePortfolio'>
             <div>
