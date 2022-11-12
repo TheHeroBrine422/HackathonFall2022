@@ -71,7 +71,7 @@ const LogIn = ({data}) => {
       <div className='pageContent'>
           
     <div  className='inputWrapper'>
-      <h2>Username</h2>
+      <h2>Email</h2>
       <input
         type="text"
         id="username"
