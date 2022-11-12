@@ -94,13 +94,15 @@ app.get('/plantAPI/getUnpairedPlants', (req, res) => { // frontend
 app.post('/plantAPI/pair', (req, res) => { // frontend
     if (checkParams(res, req.body, ["token", "identifier"])) {
         verifyToken(res, req.body.token, user => {
-            if (Object.keys(db.data["unpaired"]).indexOf(req.body.identifier) > -1 && db.data.unpaired[req.body.identifier].currentData.pairing) {
-                db.data[user][req.body.identifier] = db.data["unpaired"][req.body.identifier]
-                delete db.data["unpaired"][req.body.identifier]
-                db.identifiers[req.body.identifier] = user
-                res.send("Success")
-            } else {
-                res.send("Unknown Identifier")
+            if (req.body.identifier != '3485A29EF0C8' || user == "caleb@calebgj.io") { // hard coding for demo.
+                if (Object.keys(db.data["unpaired"]).indexOf(req.body.identifier) > -1 && db.data.unpaired[req.body.identifier].currentData.pairing) {
+                    db.data[user][req.body.identifier] = db.data["unpaired"][req.body.identifier]
+                    delete db.data["unpaired"][req.body.identifier]
+                    db.identifiers[req.body.identifier] = user
+                    res.send("Success")
+                } else {
+                    res.send("Unknown Identifier")
+                }
             }
         })
     }

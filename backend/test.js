@@ -2,6 +2,8 @@ const axios = require('axios')
 
 token = "64b2862c9e5ba9bec5fff52124ae3e04d61b305b07212e865637e278561306096a7592c489d9a33a8492632ef82c1a2574ea47abc2445c0df519ba68d3919c81"
 
+const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+
 async function sendPlantData() {
     const URLParams = new URLSearchParams();
     URLParams.append("temperature", 1)
@@ -11,6 +13,22 @@ async function sendPlantData() {
     URLParams.append("ph", 5)
     URLParams.append("pairing", 1)
     URLParams.append("identifier", "456ADF564BCD")
+
+    await axios.post("http://localhost:3001/plantAPI/sendPlantData", URLParams)
+        .then(function (response) {
+            console.log(response.data);
+        })
+}
+
+async function sendRandomPlantData() {
+    const URLParams = new URLSearchParams();
+    URLParams.append("temperature", 1)
+    URLParams.append("sun", 2)
+    URLParams.append("humidity", 3)
+    URLParams.append("water", 4)
+    URLParams.append("ph", 5)
+    URLParams.append("pairing", 1)
+    URLParams.append("identifier", genRanHex(12).toUpperCase())
 
     await axios.post("http://localhost:3001/plantAPI/sendPlantData", URLParams)
         .then(function (response) {
@@ -113,9 +131,12 @@ async function pair() {
 }
 
 (async () => {
+    for (let i = 0; i < 50; i++) {
+        await sendRandomPlantData()
+    }
     //console.log("plantdata")
     //await pair()
-    await sendPlantData()
+    //await sendPlantData()
     //await setPlantName()
     //await setPlantType()
     //await getPlants()
