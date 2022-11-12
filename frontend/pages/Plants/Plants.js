@@ -12,20 +12,8 @@ const Plants = ({data, getData}) => {
     setPlantData(data[localStorage.getItem('activePlant')])
   })
 
-  function renamePlant() {
-    let name = prompt("What do you want the new name of this plant to be?", data[localStorage.getItem('activePlant')].name)
-    if (name != data[localStorage.getItem('activePlant')].name) {
-      const URLParams = new URLSearchParams();
-      URLParams.append("identifier", localStorage.getItem('activePlant'))
-      URLParams.append('token', localStorage.getItem('token'))
-      URLParams.append('name', name)
-
-      axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/setPlantName", URLParams)
-          .then(function (response) {
-            console.log(response.data);
-            getData()
-          })
-    }
+  function editPlant() {
+    window.location.href = './EditPlant'
   }
 
   function deletePlant() {
@@ -51,8 +39,7 @@ const Plants = ({data, getData}) => {
           <div className='homePortfolio'>
             <div>
               <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
-              <button onClick={renamePlant}>Rename</button>
-              <button>Change Plant</button>
+              <button onClick={editPlant}>Edit Plant</button>
               <button onClick={deletePlant}>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
               <Typography classSet="plantProperty humidity">Humidity: {data[localStorage.getItem('activePlant')].currentData.humidity}</Typography>
