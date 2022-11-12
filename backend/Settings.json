@@ -1,6 +1,6 @@
 {
   "debug": true,
-  "port": 80,
+  "port": 3001,
   "validTypes" : [
     "Cactus",
     "Flower"

@@ -213,7 +213,7 @@ app.get('/plantAPI/getPossibleTypes', (req, res) => {
     res.send(JSON.stringify(settings.validTypes))
 })
 
-app.listen(settings.port, () => {
+app.listen( process.env.PORT || settings.port, () => {
     console.log('server started at localhost:' + settings.port);
     if (fs.existsSync("db.json")) {
         db = JSON.parse(fs.readFileSync("db.json", 'utf8'))
