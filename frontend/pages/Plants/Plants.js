@@ -2,6 +2,7 @@ import React from 'react'
 import { SiteHeader, Typography } from '../../views/Home/components'
 import { useEffect, useState } from 'react'
 import {Grid } from '../../views/Home/components'
+import axios from 'axios'
 
 function deletePlant() {
   if (confirm("Do you really want to delete this plant?")) {
@@ -17,7 +18,7 @@ function deletePlant() {
 }
 
 function renamePlant() {
-  name = prompt("What do you want the new name of this plant to be?", data[localStorage.getItem('activePlant')].name)
+  let name = prompt("What do you want the new name of this plant to be?", data[localStorage.getItem('activePlant')].name)
   const URLParams = new URLSearchParams();
   URLParams.append("identifier", localStorage.getItem('activePlant'))
   URLParams.append('token', localStorage.getItem('token'))
