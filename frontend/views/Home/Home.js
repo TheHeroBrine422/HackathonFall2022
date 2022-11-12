@@ -18,7 +18,7 @@ const headLinks = [
     },
 ];
 
-const Home  = ({data}) => {
+const Home  = ({data, client}) => {
   
 
     return (

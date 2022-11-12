@@ -21,7 +21,7 @@ class DataFetch extends React.Component {
 
     render () {
         console.log(this.state.data)
-        return this.state.data != null ? <Home {...this.state.data} {this.props.token}/> : (
+        return this.state.data != null ? <Home {...this.state.data} client={this.props.token}/> : (
             <span>Loading wells...</span>
         )
     }
