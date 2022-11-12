@@ -5,13 +5,6 @@ import {Grid } from '../../blocks/components'
 import axios from 'axios'
 
 const Plants = ({data, getData}) => {
-  
-  const [plantData, setPlantData] = useState({});
-
-  useEffect(() => {
-    setPlantData(data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null])
-  })
-
   function editPlant() {
     window.location.href = './EditPlant'
   }
@@ -38,15 +31,15 @@ const Plants = ({data, getData}) => {
       <div className='pageContent'>
           <div className='homePortfolio'>
             <div>
-              <Typography classSet={'homeHeadline'}>{plantData.name}</Typography>
+              <Typography classSet={'homeHeadline'}>{typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].name : null}</Typography>
               <button onClick={editPlant}>Edit Plant</button>
               <button onClick={deletePlant}>Remove Plant</button>
               <Grid classSet="plantPropertyGrid" rows={2} columns={3}>
-              <Typography classSet="plantProperty humidity">Humidity: {data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null].currentData.humidity}%</Typography>
-              <Typography classSet="plantProperty ph">PH: {data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null].currentData.ph}</Typography>
-              <Typography classSet="plantProperty sunlight">Sunlight Today: {data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null].currentData.sun}seconds</Typography>
-              <Typography classSet="plantProperty temperature">Temperature: {data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null].currentData.temperature}F</Typography>
-              <Typography classSet="plantProperty water">Water: {data[typeof window !== 'undefined' ? localStorage.getItem('activePlant') : null].currentData.water}ml</Typography>
+              <Typography classSet="plantProperty humidity">Humidity: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.humidity : null}%</Typography>
+                <Typography classSet="plantProperty ph">PH: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.ph : null}</Typography>
+                <Typography classSet="plantProperty sunlight">Sunlight Today: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.sun : null}seconds</Typography>
+                <Typography classSet="plantProperty temperature">Temperature: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.temperature : null}F</Typography>
+                <Typography classSet="plantProperty water">Water: {typeof window !== 'undefined' ? data[localStorage.getItem('activePlant')].currentData.water : null}ml</Typography>
               </Grid>
           </div>
           </div>
