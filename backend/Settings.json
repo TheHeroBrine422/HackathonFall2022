@@ -3,7 +3,16 @@
   "port": 3001,
   "validTypes" : [
     "Cactus",
-    "Flower"
+    "Flower",
+    "Bonsai",
+    "Succulent",
+    "Fern",
+    "Tullip",
+    "Big Leaf",
+    "Vine",
+    "Creeper",
+    "Tree",
+    "Cane"
   ],
   "saltRounds": 10,
   "maxNumberOfTokens": 10,

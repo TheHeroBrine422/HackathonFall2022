@@ -76,7 +76,7 @@ const LogIn = ({data}) => {
         type="text"
         id="username"
         name="username"
-        className='usernameInput'
+        // className='usernameInput'
         onChange={handleUsername}
         value={username}
       />
@@ -90,7 +90,7 @@ const LogIn = ({data}) => {
         type="text"
         id="password"
         name="password"
-        className='passwordInput'
+        // className='passwordInput'
         onChange={handlePassword}
         value={password}
       />

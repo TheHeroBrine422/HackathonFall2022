@@ -1,4 +1,4 @@
-import {SiteHeader} from "../../views/Home/components";
+import { SiteHeader } from "../../blocks/components";
 import React, {useEffect, useState} from "react";
 import LoadingScreen from "../../blocks/LoadingScreen";
 import axios from 'axios'

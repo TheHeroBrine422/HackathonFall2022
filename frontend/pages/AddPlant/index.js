@@ -1,8 +1,7 @@
-import { SiteHeader } from "../../blocks/components"
-import React, {useEffect, useState} from "react";
+import {SiteHeader, Grid } from "../../blocks/components";
+import {useEffect, useState} from "react";
 import LoadingScreen from "../../blocks/LoadingScreen";
 import axios from 'axios';
-import { Grid } from "../../views/Home/components";
 
 const AddPlant = ({}) => {
 
