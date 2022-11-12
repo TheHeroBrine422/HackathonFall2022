@@ -1,8 +1,11 @@
 import Link from "next/link"
 
-
-
 const SiteHeader = ({loggedIN}) => {
+
+    function logout() {
+        localStorage.setItem('token', "")
+        window.local.href('/')
+    }
 
     return (
         <div className="siteHeader">
@@ -13,7 +16,7 @@ const SiteHeader = ({loggedIN}) => {
             </h1>
             {loggedIN &&
             <div>
-                <button className="logOut">Log Out</button>
+                <button className="logOut" onClick={logout}>Log Out</button>
                 <button className="accountSettings">Account Settings</button>
             </div>
             }

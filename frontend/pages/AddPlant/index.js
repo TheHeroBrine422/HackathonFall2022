@@ -1,8 +1,20 @@
 import PlantList from "../../blocks/PlantList"
 import { SiteHeader } from "../../views/Home/components"
+import React, {useEffect} from "react";
+import LoadingScreen from "../../blocks/LoadingScreen";
 
 const AddPlant = ({}) => {
-  return(
+
+  [unpairedPlants, setUnpairedPlants] = useState(null)
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/plantAPI/getPlants", {params: {"token": localStorage.getItem('token')}})
+        .then(function (response) {
+          setUnpairedPlants(response.data)
+        })
+  })
+
+  return unpairedPlants == null ? (<LoadingScreen/>) : (
     <div>
       <SiteHeader loggedIN={true} />
         <div className='pageContent'>
