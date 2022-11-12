@@ -3,13 +3,18 @@ import Home from "../views/Home/Home";
 import React from "react";
 
 class DataFetch extends React.Component {
-    // const DataFetch = () => {
     constructor () {
         super()
         this.state = { data: null }
+        this.getData = this.getData.bind(this)
     }
 
     componentDidMount() {
+        this.getData()
+        setInterval(this.getData, 60*1000)
+    }
+
+    getData() {
         axios.get("http://192.168.137.1:3000/plantAPI/getPlants")
             .then(response => {this.setState({ data: response.data })})
     }
