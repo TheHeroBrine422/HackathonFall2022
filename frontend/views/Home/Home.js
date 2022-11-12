@@ -10,75 +10,6 @@ import {
 } from './components'
 
 
-const projects = [
-    {
-        image: '',
-        title: 'Spiral Drawer',
-        description: 'art thingy. i need more words to see how things are working. Usually a person could/would use the lorem ipsum text, but I dhave simply decided to type this out.',
-    },
-    {
-        image: '',
-        title: 'CarterMadden.com',
-        description: 'website i mad',
-    },
-    {
-        image: '',
-        title: 'Pong',
-        description: 'little game',
-    },
-    {
-        image: '',
-        title: 'Calculator',
-        description: 'do bunch of stuffs',
-    },
-]
-const recentActivities = [
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    
-]
-const testimonials = [
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    {
-        image: '',
-        title: '',
-        description: '',
-    },
-    
-]
-
 export default function Home () {
 
     return (
@@ -99,7 +30,7 @@ export default function Home () {
                 <div className='homePortfolio'>
                     <Typography classSet={'homeHeadline'}>What I do:</Typography>
                     <Grid rows={1} columns={4}>
-                        {projects.map((project, index) => (
+                        {/* {projects.map((project, index) => (
                             <Card
                                 key={index}
                                 title={project.title}
@@ -107,7 +38,7 @@ export default function Home () {
                                 image={project.image}
                                 >
                             </Card>
-                        ))}
+                        ))} */}
                     </Grid>
                     <div className='threePhotos'>
                     <Photo image={''} title={''} ></Photo>

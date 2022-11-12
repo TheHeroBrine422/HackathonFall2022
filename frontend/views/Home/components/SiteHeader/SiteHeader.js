@@ -1,38 +1,16 @@
 import Link from "next/link"
 
 
-const headLinks = [
-    // {
-    //     title: "Blog",
-    //     link: "./blog",
-    // },
-    // {
-    //     title: "Cooking",
-    //     link: "./cooking",
-    // },
-    // {
-    //     title: "Hobbies",
-    //     link: "./hobbies",
-    // },
-    {
-        title: "Projects",
-        link: "./projects",
-    },
-    // {
-    //     title: "About",
-    //     link: "./about",
-    // },
-];
 
 const SiteHeader = () => {
 
     return (
         <div className="siteHeader">
             <h1 className="siteTitle">
-                ScottEagleson
+                MyPlantium
             </h1>
 
-            <ul className="headerLinks">
+            {/* <ul className="headerLinks">
             {headLinks.map((headLink, index) => (
                 <Link 
                     href={headLink.link}  
@@ -41,7 +19,7 @@ const SiteHeader = () => {
                     <a className='headerLink'>{headLink.title}</a>
                 </Link>
             ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }

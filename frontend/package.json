@@ -1,5 +1,5 @@
 {
-  "name": "scotteagleson.com",
+  "name": "hackathon2022fallProject",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-native-cli": "^2.0.1",
     "sass": "^1.54.8"
   },
   "devDependencies": {
