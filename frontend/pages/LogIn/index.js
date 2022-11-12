@@ -1,8 +1,10 @@
 import React from 'react'
 import { SiteHeader, Typography } from '../../views/Home/components'
 import Link from 'next/link'
+import axios from 'axios'
 
 import {useState} from 'react';
+import DataFetch from "../../DataFetch";
 
 const LogIn = ({data}) => {
 
@@ -21,16 +23,54 @@ const LogIn = ({data}) => {
     console.log('value is:', event.target.value);
   };
 
-    return (<div>
+    const [token, setToken] = useState('');
+
+
+  const login = () => {
+      const URLParams = new URLSearchParams();
+      URLParams.append("email", username)
+      URLParams.append("password", password)
+
+      axios.post("http://localhost:3000/plantAPI/login", URLParams)
+          .then(function (response) {
+              if ("invalid") {
+
+              } else {
+                  setToken(response.data)
+              }
+          })
+  }
+
+    const register = () => {
+        const URLParams = new URLSearchParams();
+        URLParams.append("email", username)
+        URLParams.append("password", password)
+
+        axios.post("http://localhost:3000/plantAPI/register", URLParams)
+            .then(function (response) {
+                console.log(response.data);
+            })
+    }
+
+
+
+    return token == null ? (<div>
       <SiteHeader />
       <div className='pageContent'>
           <div className='homePortfolio'>
-              <Typography classSet={'homeHeadline'}>Login</Typography>
-                      <Link 
-                          href={"./Home"}
-                      >
-                          <a className='headerLink'>Log In</a>
-                      </Link>
+              <Typography classSet={'homeHeadline'}>Register</Typography>
+                  <Link
+                      href={"./Home"}
+                      onClick={register}
+                  >
+                      <a className='headerLink'>Login</a>
+                  </Link>
+                  <Link
+                      href={"./Home"}
+                      onClick={login}
+                  >
+                      <a className='headerLink'>Log In</a>
+                  </Link>
           </div>
           
     <div>
@@ -60,7 +100,7 @@ const LogIn = ({data}) => {
       </div>
       {/* <SiteFooter /> */}
   </div>
-    )
+    ) : (<DataFetch />)
 }
 
 
