@@ -17,9 +17,9 @@ const SiteHeader = ({loggedIN}) => {
                 The Fun-Gi Gardener
             </h1>
             {loggedIN &&
-                <div>
+                <div className="logOutWrapper">
                     <button className="logOut" onClick={logout}>Log Out</button>
-                    <button className="accountSettings">Account Settings</button>
+                    {/* <button className="accountSettings">Account Settings</button> */}
                 </div>
             }
         </div>
