@@ -20,7 +20,7 @@ const AddPlant = ({}) => {
     URLParams.append("identifier", key)
     URLParams.append("token", localStorage.getItem('token'))
 
-    axios.post("http://localhost:3001/plantAPI/pair", URLParams)
+    axios.post(process.env.NEXT_PUBLIC_API_URL+"/plantAPI/pair", URLParams)
         .then(function (response) {
           window.location.href = './EditPlant'
         })
