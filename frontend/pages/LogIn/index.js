@@ -87,7 +87,7 @@ const LogIn = ({data}) => {
     <div className='inputWrapper'>
       <h2>Password</h2>
       <input
-        type="text"
+        type="password"
         id="password"
         name="password"
         className='passwordInput'
