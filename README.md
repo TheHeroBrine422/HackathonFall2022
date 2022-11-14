@@ -1,13 +1,14 @@
 ## HackathonFall2022 || Runtime Terrors
 Project Name: The Fun-Gi Gardener
-|Name|Email|Year|Major|
-|-|-|-|-|
-|Zachary Harris|zcharris@uark.edu|Junior|Computer Science|
-|Isabella Martinez|iam001@uark.edu|Sophmore|Computer Science|
-|A'darius Lee|ajl017@uark.edu|Senior|Computer Science|
-|Scott Eagleson|-|Senior|Biomedical Engineering|
-|Gabriel Garcia|-|Senior|Computer Science|
-|Caleb Jones|cgj010@uark.edu|Freshman|Computer Engineering|
+Presentation: https://www.canva.com/design/DAFRteE0Yoc/tGnfxx7mYjG8h8xWkU9VTg/view?utm_content=DAFRteE0Yoc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+|Name|Email|Github|Year|Major|Focus|
+|-|-|-|-|-|-|
+|Zachary Harris|zcharris@uark.edu|[Xaffels](https://github.com/Xaffels)|Junior|Computer Science|Hardware|
+|Isabella Martinez|iam001@uark.edu|-|Sophmore|Computer Science|Design|
+|A'darius Lee|ajl017@uark.edu|-|Senior|Computer Science|Marketing and Research|
+|Scott Eagleson|-|[saeagleson](https://github.com/saeagleson)|Senior|Biomedical Engineering and Computer Science|Frontend|
+|Gabriel Garcia|-|[gaberay2022](https://github.com/gaberay2022)|Senior|Computer Science|Hardware|
+|Caleb Jones|cgj010@uark.edu|[Hero](https://github.com/TheHeroBrine422)|Freshman|Computer Engineering|Backend/Frontend|
 ***
 ### <u>Introduction:</u>
         The Fun-Gi Gardener is a smart home device designed to monitor plant health and then report that information back to a website that you can monitor from a computer or a phone. 
