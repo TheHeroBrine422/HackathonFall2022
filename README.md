@@ -1,6 +1,7 @@
 ## HackathonFall2022 || Runtime Terrors
 Project Name: The Fun-Gi Gardener
-Presentation: https://www.canva.com/design/DAFRteE0Yoc/tGnfxx7mYjG8h8xWkU9VTg/view?utm_content=DAFRteE0Yoc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+Presentation: [Canva](https://www.canva.com/design/DAFRteE0Yoc/tGnfxx7mYjG8h8xWkU9VTg/view?utm_content=DAFRteE0Yoc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 |Name|Email|Github|Year|Major|Focus|
 |-|-|-|-|-|-|
 |Zachary Harris|zcharris@uark.edu|[Xaffels](https://github.com/Xaffels)|Junior|Computer Science|Hardware|
