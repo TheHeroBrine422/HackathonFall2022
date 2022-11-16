@@ -7,7 +7,7 @@ Presentation: [Canva](https://www.canva.com/design/DAFRteE0Yoc/tGnfxx7mYjG8h8xWk
 |Zachary Harris|zcharris@uark.edu|[Xaffels](https://github.com/Xaffels)|Junior|Computer Science|Hardware|
 |Isabella Martinez|iam001@uark.edu|-|Sophmore|Computer Science|Design|
 |A'darius Lee|ajl017@uark.edu|-|Senior|Computer Science|Marketing and Research|
-|Scott Eagleson|-|[saeagleson](https://github.com/saeagleson)|Senior|Biomedical Engineering and Computer Science|Frontend|
+|Scott Eagleson|saegles@uark.edu|[saeagleson](https://github.com/saeagleson)|Senior|Biomedical Engineering and Computer Science|Frontend|
 |Gabriel Garcia|-|[gaberay2022](https://github.com/gaberay2022)|Senior|Computer Science|Hardware|
 |Caleb Jones|cgj010@uark.edu|[Hero](https://github.com/TheHeroBrine422)|Freshman|Computer Engineering|Backend/Frontend|
 ***
