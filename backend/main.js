@@ -164,10 +164,7 @@ app.post('/plantAPI/register', (req, res) => { // frontend
 app.post('/plantAPI/login', (req, res) => { // frontend
     if (checkParams(res, req.body, ["email", "password"])) {
         if (Object.keys(db.logins).indexOf(req.body.email) > -1) {
-            console.log(req.body.password)
-            console.log(db.logins[req.body.email])
             bcrypt.compare(crypto.createHash("sha512").update(req.body.password).digest('hex'), db.logins[req.body.email], function(err, result) {
-                console.log(result)
                 if (result) {
                     res.send(generateToken(req.body.email))
                 } else {
